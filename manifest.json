@@ -14,8 +14,7 @@
   "content_scripts": [
     {
       "matches": ["https://*.breezy.hr/*",
-            "https://app.breezy.hr/*",
-            "https://mail.google.com/*"],
+            "https://app.breezy.hr/*"],
       "js": [ "pdf.js", "pdf.worker.js", "content.js"]
     }
   ],
