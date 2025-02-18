@@ -1,0 +1,31 @@
+
+{
+  "manifest_version": 3,
+  "name": "Resume Summary Extension",
+  "version": "0.0",
+  "description": "Extracts text from PDFs and provides a summary using OpenAI API",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://app.breezy.hr/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.breezy.hr/*",
+            "https://app.breezy.hr/*"],
+      "js": [ "pdf.js", "pdf.worker.js", "content.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["pdf.js", "pdf.worker.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "action": {
+    "default_title": "Resume Summary"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
